@@ -1,5 +1,5 @@
 (executable
- (public_name MyDevices)
+ (public_name my-devices)
  (name main)
  (libraries MyDevices)
 )

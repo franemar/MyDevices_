@@ -1,1 +1,31 @@
-let () = print_endline "Hello, World!"
+
+(*let os = System.Environment.OSVersion;
+
+print_endline("Hello Tango!");
+print_endline("Current OS Information:");
+print_endline("OS: {os.ToString()}");
+print_endline("Platform: {os.Platform.ToString()}");
+print_endline("Version String: {os.VersionString}");
+print_endline("Version Information:");
+print_endline("   Major: {os.Version.Major}");
+print_endline("   Minor: {os.Version.Minor}");
+print_endline("Service Pack: {os.ServicePack.ToString()}");
+*)
+
+let isTargetPlatform = match Sys.os_type with
+  | "Unix" -> true
+  | _ -> false
+
+let () = Printf.printf "Target Platform: %b\n" isTargetPlatform
+
+let cmd = match isTargetPlatform with
+  | true ->
+    (
+      let cmmd = "pacman -Qqei > ~/.config/aconfmgr/pklist.txt";
+      let () = print_endline "Platform validated, creating command...";
+      let () = Printf.printf "Command to query installed packages: %s\n" cmmd;
+      cmmd;
+    )
+   | false -> let () = print_endline "Not in target platform, exiting...\n"; (* {os.Platform.ToString()}" *)
+  "NO_COMMAND"
+
