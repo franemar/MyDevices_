@@ -1,0 +1,5 @@
+(executable
+ (public_name MyDevices)
+ (name main)
+ (libraries MyDevices)
+)
