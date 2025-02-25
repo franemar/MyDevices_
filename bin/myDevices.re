@@ -22,7 +22,6 @@ if (isTargetPlatform != "Unix")
 else
   {
     print_endline("Platform validated, creating command...");
-
     let cmd = "pacman -Qqei > ~/.config/aconfmgr/pklist.txt";
     print_endline("Command to query installed packages: `%s`" ++ cmd);
   }
